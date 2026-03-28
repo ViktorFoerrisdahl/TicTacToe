@@ -1,0 +1,9 @@
+build/
+bin/
+obj/
+*.ninja_log
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
