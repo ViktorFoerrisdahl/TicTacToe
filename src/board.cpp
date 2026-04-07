@@ -16,19 +16,23 @@ sf::RectangleShape board::boardInfo(int index) {
 }
 
 void board::initBoard() {
-    this->lines_[0].setPosition(600.f,0.f);
-    this->lines_[0].setSize(sf::Vector2f(30.f,600.f));
+    //Left vertical line
+    this->lines_[0].setPosition(375.f,0.f);
+    this->lines_[0].setSize(sf::Vector2f(50.f,800.f));
     this->lines_[0].setFillColor(sf::Color::White);
 
-    this->lines_[1].setPosition(60.f,0.f);
-    this->lines_[1].setSize(sf::Vector2f(30.f,600.f));
+    //Right vertical line
+    this->lines_[1].setPosition(775.f,0.f);
+    this->lines_[1].setSize(sf::Vector2f(50.f,800.f));
     this->lines_[1].setFillColor(sf::Color::White);
 
-    this->lines_[2].setPosition(60.f,600.f);
-    this->lines_[2].setSize(sf::Vector2f(600.f,30.f));
+    //Upper horizontal line
+    this->lines_[2].setPosition(0.f,241.f);
+    this->lines_[2].setSize(sf::Vector2f(1200.f,50.f));
     this->lines_[2].setFillColor(sf::Color::White);
 
-    this->lines_[3].setPosition(600.f,60.f);
-    this->lines_[3].setSize(sf::Vector2f(600.f,30.f));
+    //Lower horizontal line
+    this->lines_[3].setPosition(0.f,508.f);
+    this->lines_[3].setSize(sf::Vector2f(1200.f,50.f));
     this->lines_[3].setFillColor(sf::Color::White);
 }
