@@ -1,4 +1,5 @@
 #include "game.h"
+#include "board.h"
 
 //private functions---------
 
@@ -18,6 +19,7 @@ void game::initWindow() {
 game::game() {
     this->initVariables();
     this->initWindow();
+    this->Board_.initBoard();
 }
 
 game::~game() {
@@ -36,7 +38,9 @@ void game::render() {
     //clears the old frame:
     this->window_->clear();
     //add to the new frame:
-
+    for (int i = 0; i < 4; i++) {
+        this->window_->draw(Board_.boardInfo(i));
+    }
     //display new frame:
     this->window_->display();
 }

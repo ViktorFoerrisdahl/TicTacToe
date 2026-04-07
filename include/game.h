@@ -1,10 +1,15 @@
 #pragma once
 
+#include "board.h"
+
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 
 #include <iostream>
+#include <vector>
+
+class board;
 
 class game {
 private:
@@ -12,8 +17,9 @@ private:
         //window
     sf::RenderWindow* window_;
     sf::VideoMode VideoMode_;
-    sf::Event window_event_;    
+    sf::Event window_event_;
 
+    board Board_;
 
     //private functions:
     void initVariables();
