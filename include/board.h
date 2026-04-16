@@ -10,7 +10,7 @@ class board
 {
 private:
     //varibles
-    sf::RectangleShape lines_[4];
+    sf::RectangleShape game_lines_[4];
     //int grid[3][3];
 
 public:
