@@ -1,6 +1,7 @@
 #pragma once
 
 #include "board.h"
+#include "menu.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
@@ -9,6 +10,7 @@
 #include <iostream>
 #include <vector>
 
+class startMenu;
 class board;
 
 class game {
@@ -18,6 +20,8 @@ private:
     sf::RenderWindow* window_;
     sf::VideoMode VideoMode_;
     sf::Event window_event_;
+
+    startMenu start_;
 
     board Board_;
 

@@ -18,3 +18,6 @@ target_include_directories(TicTacToe PUBLIC include)
 
 # Link SFML modules
 target_link_libraries(TicTacToe sfml-graphics sfml-window sfml-system sfml-audio)
+
+# Makes a copy of the fonts folder og places it where the executable file is, so it can be used
+file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/fonts" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
