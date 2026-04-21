@@ -30,5 +30,8 @@ sf::Text startMenu::initWelcome() {
     // set the text style
     this->welcome_.setStyle(sf::Text::Bold);
 
+    // set the placement (middle)
+    this->welcome_.setPosition(357.f, 150.f);
+
     return this->welcome_;
 }

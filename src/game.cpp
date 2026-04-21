@@ -46,6 +46,7 @@ void game::render() {
     case Menu:
         //add startMenu
         this->window_->draw(start_.initWelcome());
+        //std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
         break;
     
     case Ingame:
