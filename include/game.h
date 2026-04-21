@@ -11,7 +11,15 @@
 #include <vector>
 
 class startMenu;
+
 class board;
+
+enum game_States {
+    Menu, 
+    Ingame, 
+    GameOver
+};
+
 
 class game {
 private:
@@ -25,16 +33,21 @@ private:
 
     board Board_;
 
+    enum game_States state_;
+
     //private functions:
     void initVariables();
     void initWindow();
 public:
+    //varibles
+    enum state_ {menu, ingame, game_Over};
     //constructor / deconstructor
     game();
     ~game();
 
     //bool for window status
     const bool getWindowStatus() const; 
+
 
     //functions:
     void update();

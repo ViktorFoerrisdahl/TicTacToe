@@ -6,6 +6,7 @@
 
 void game::initVariables() {
     this->window_ = nullptr;
+    this->state_ = Menu;
 }
 
 void game::initWindow() {
@@ -40,18 +41,32 @@ void game::render() {
     //clears the old frame:
     this->window_->clear();
 
-    //add startMenu
-    this->window_->draw(start_.initWelcome());
+    //Switch to control the state of the game
+    switch (this->state_) {
+    case Menu:
+        //add startMenu
+        this->window_->draw(start_.initWelcome());
+        break;
+    
+    case Ingame:
+        //add to the new frame:
+        for (int i = 0; i < 4; i++) {
+            this->window_->draw(Board_.boardInfo(i));
+            }
+        break;
+    
+    case GameOver:
+        break;
 
-    //add to the new frame:
-    /*
-    for (int i = 0; i < 4; i++) {
-        this->window_->draw(Board_.boardInfo(i));
+    default:
+    std::cout << "Went to default mode";
     }
-        */
-    //display new frame:
+
+ //display new frame:
     this->window_->display();
 }
+
+
 
 void game::pollEvents() {
     
