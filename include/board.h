@@ -14,9 +14,8 @@ private:
     //int grid[3][3];
 
 public:
-    //constructor / deconstructor
+    //constructor
     board();
-    ~board();
 
     //functions:
     void updateBoard();

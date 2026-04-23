@@ -3,6 +3,11 @@
 
 
 //public functions:
+
+startMenu::startMenu() {
+    this->initFont();
+}
+
 //init font and check if it is loaded in correctly.
 void startMenu::initFont() {
     if (!this->font_.loadFromFile("fonts/MirandaSans-VariableFont_wght.ttf")) {
@@ -12,8 +17,8 @@ void startMenu::initFont() {
     }
 }
 
-//init welcome text:
-sf::Text startMenu::initWelcome() {
+//init welcome text and return it drawing function
+sf::Text startMenu::initWelcomeAndReturnIt() {
 
     //set the font
     this->welcome_.setFont(this->font_);
@@ -34,4 +39,28 @@ sf::Text startMenu::initWelcome() {
     this->welcome_.setPosition(357.f, 150.f);
 
     return this->welcome_;
+}
+
+//init button text and return it:
+sf::Text startMenu::initButtonTextAndReturnIt() {
+    
+        //set the font
+    this->buttonText_.setFont(this->font_);
+
+    // set the string to display
+    this->buttonText_.setString("START");
+    
+    // set the character size
+    this->buttonText_.setCharacterSize(55); // in pixels, not points!
+
+    // set the color
+    this->buttonText_.setFillColor(sf::Color::Red);
+
+    // set the text style
+    this->buttonText_.setStyle(sf::Text::Bold);
+
+    // set the placement (middle)
+    this->buttonText_.setPosition(510.f, 350.f);
+
+    return this->buttonText_;
 }

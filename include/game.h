@@ -29,7 +29,7 @@ private:
     sf::VideoMode VideoMode_;
     sf::Event window_event_;
 
-    startMenu start_;
+    startMenu startMenu_;
 
     board Board_;
 

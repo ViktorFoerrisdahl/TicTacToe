@@ -22,7 +22,7 @@ game::game() {
     this->initVariables();
     this->initWindow();
     this->Board_.initBoard();
-    this->start_.initFont();
+    this->startMenu_.initFont();
 }
 
 game::~game() {
@@ -45,8 +45,10 @@ void game::render() {
     switch (this->state_) {
     case Menu:
         //add startMenu
-        this->window_->draw(start_.initWelcome());
-        //std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        this->window_->draw(startMenu_.initWelcomeAndReturnIt());
+        std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        //draw start button
+        this->window_->draw(startMenu_.initButtonTextAndReturnIt());
         break;
     
     case Ingame:

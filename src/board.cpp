@@ -7,9 +7,6 @@ board::board() {
     this->initBoard();
 }
 
-board::~board() {
-    
-}
 
 sf::RectangleShape board::boardInfo(int index) {
     return game_lines_[index];
