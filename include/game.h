@@ -10,8 +10,6 @@
 #include <iostream>
 #include <vector>
 
-class startMenu;
-
 class board;
 
 enum game_States {
@@ -20,6 +18,7 @@ enum game_States {
     GameOver
 };
 
+class startMenu;
 
 class game {
 private:
@@ -40,7 +39,11 @@ private:
     void initWindow();
 public:
     //varibles
-    enum state_ {menu, ingame, game_Over};
+    
+    sf::Vector2i mousePosWindow;
+    sf::Vector2f mousePosView;
+
+    
     //constructor / deconstructor
     game();
     ~game();
@@ -50,6 +53,7 @@ public:
 
 
     //functions:
+    void updateMousePos();
     void update();
     void render();
     void pollEvents();

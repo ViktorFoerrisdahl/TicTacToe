@@ -22,7 +22,7 @@ game::game() {
     this->initVariables();
     this->initWindow();
     this->Board_.initBoard();
-    this->startMenu_.initFont();
+    this->startMenu_.getButtonHitbox();
 }
 
 game::~game() {
@@ -33,7 +33,13 @@ const bool game::getWindowStatus() const {
     return this->window_->isOpen();
 }
 
+void game::updateMousePos() {
+    this->mousePosWindow = sf::Mouse::getPosition(*this->window_);
+    this->mousePosView = this->window_->mapPixelToCoords(this->mousePosWindow);
+}
+
 void game::update() {
+    this->updateMousePos();
     this->pollEvents();
 }
 
@@ -46,7 +52,7 @@ void game::render() {
     case Menu:
         //add startMenu
         this->window_->draw(startMenu_.initWelcomeAndReturnIt());
-        std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        // std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
         //draw start button
         this->window_->draw(startMenu_.initButtonTextAndReturnIt());
         break;
@@ -62,14 +68,12 @@ void game::render() {
         break;
 
     default:
-    std::cout << "Went to default mode";
+    std::cout << "Went to default in switch case";
     }
 
  //display new frame:
     this->window_->display();
 }
-
-
 
 void game::pollEvents() {
     
@@ -85,6 +89,16 @@ void game::pollEvents() {
                         this->window_->close();
                         break;
                     }
-             }
+                default:
+                break;
+            }
+
+            //checks if mouse button is pressed on the start text
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                if ((startMenu_.getButtonHitbox()).contains(this->mousePosView) && this->state_ == Menu) {
+                        this->state_ = Ingame;
+            }
+             
         }
+    }
 }

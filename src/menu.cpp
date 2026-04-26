@@ -6,6 +6,7 @@
 
 startMenu::startMenu() {
     this->initFont();
+    this->hitboxButton_ = buttonText_.getGlobalBounds();
 }
 
 //init font and check if it is loaded in correctly.
@@ -15,6 +16,10 @@ void startMenu::initFont() {
     } else {
         std::cout << "Font loaded corretly";
     }
+}
+
+sf::FloatRect startMenu::getButtonHitbox() {
+    return this->hitboxButton_ = buttonText_.getGlobalBounds();
 }
 
 //init welcome text and return it drawing function

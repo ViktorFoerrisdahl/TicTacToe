@@ -12,7 +12,6 @@ int main () {
         tictactoe.update();
         //render
         tictactoe.render();
-        
     }
 
     return 0;
