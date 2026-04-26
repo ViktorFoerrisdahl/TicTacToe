@@ -43,6 +43,12 @@ sf::Text startMenu::initWelcomeAndReturnIt() {
     // set the placement (middle)
     this->welcome_.setPosition(357.f, 150.f);
 
+    //set outline
+    this->welcome_.setOutlineColor(sf::Color::Red);
+
+    //set outline size
+    this->welcome_.setOutlineThickness(1.f);
+
     return this->welcome_;
 }
 
@@ -66,6 +72,12 @@ sf::Text startMenu::initButtonTextAndReturnIt() {
 
     // set the placement (middle)
     this->buttonText_.setPosition(510.f, 350.f);
+
+    //set outline
+    this->buttonText_.setOutlineColor(sf::Color::Blue);
+
+    //set outline size
+    this->buttonText_.setOutlineThickness(1.f);
 
     return this->buttonText_;
 }
