@@ -11,6 +11,7 @@ class board
 private:
     //varibles
     sf::RectangleShape game_lines_[4];
+    sf::RectangleShape grid_lines_[9];
     //int grid[3][3];
 
 public:
@@ -20,6 +21,7 @@ public:
     //functions:
     void updateBoard();
     void initBoard();
+    void initBoardGrid();
     sf::RectangleShape boardInfo(int index);
 };
 

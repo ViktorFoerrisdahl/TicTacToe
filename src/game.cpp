@@ -52,7 +52,10 @@ void game::render() {
     case Menu:
         //add startMenu
         this->window_->draw(startMenu_.initWelcomeAndReturnIt());
-        // std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+
+        //function to get position to use for measurements:
+        std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        
         //draw start button
         this->window_->draw(startMenu_.initButtonTextAndReturnIt());
         break;
@@ -62,6 +65,10 @@ void game::render() {
         for (int i = 0; i < 4; i++) {
             this->window_->draw(Board_.boardInfo(i));
             }
+            
+        //function to get position to use for measurements:
+        std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+
         break;
     
     case GameOver:
