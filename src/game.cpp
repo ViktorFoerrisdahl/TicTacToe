@@ -53,9 +53,12 @@ void game::render() {
         //add startMenu
         this->window_->draw(startMenu_.initWelcomeAndReturnIt());
 
+        //////////////////////////////////////////////
+        //REMOVE WHEN GAME IS DONE
         //function to get position to use for measurements:
-        std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
-        
+        //std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        //////////////////////////////////////////////
+
         //draw start button
         this->window_->draw(startMenu_.initButtonTextAndReturnIt());
         break;
@@ -71,8 +74,11 @@ void game::render() {
             this->window_->draw(Board_.boardGrid(i));
         }
 
+        //////////////////////////////////////////////
+        //REMOVE WHEN GAME IS DONE
         //function to get position to use for measurements:
-        std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        //std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        //////////////////////////////////////////////
 
         break;
     
@@ -106,11 +112,14 @@ void game::pollEvents() {
             }
 
             //checks if mouse button is pressed on the start text
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-                if ((startMenu_.getButtonHitbox()).contains(this->mousePosView) && this->state_ == Menu) {
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) 
+            {
+                if ((startMenu_.getButtonHitbox()).contains(this->mousePosView) && this->state_ == Menu) 
+                {
                         this->state_ = Ingame;
-            }
+                }
              
-        }
+            }
+
     }
 }
