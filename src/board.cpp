@@ -5,12 +5,17 @@
 
 board::board() {
     this->initBoard();
+    this->initBoardGrid();
 }
-
 
 sf::RectangleShape board::boardInfo(int index) {
     return game_lines_[index];
 }
+
+sf::RectangleShape board::boardGrid(int index) {
+    return grid_[index];
+}
+
 
 void board::initBoard() {
     //Left vertical line
@@ -41,6 +46,8 @@ void board::initBoard() {
 
 void board::initBoardGrid() {
     //top left gridbox
-    this->grid_lines_[0].setPosition(0.f,0.f);
-    this->grid_lines_[0].setSize(sf::Vector2f(100.f,100.f));
+    this->grid_[0].setOrigin(sf::Vector2f(0.f,175.f));
+    this->grid_[0].setPosition(12.5,185.f);
+    this->grid_[0].setSize(sf::Vector2f(350.f,215.f));
+    this->grid_[0].setFillColor(sf::Color::Blue);
 }

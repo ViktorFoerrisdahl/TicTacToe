@@ -65,7 +65,12 @@ void game::render() {
         for (int i = 0; i < 4; i++) {
             this->window_->draw(Board_.boardInfo(i));
             }
-            
+
+        //display grid
+        for (int i = 0; i < 9; i++) {
+            this->window_->draw(Board_.boardGrid(i));
+        }
+
         //function to get position to use for measurements:
         std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
 
