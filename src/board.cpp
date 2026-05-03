@@ -46,8 +46,20 @@ void board::initBoard() {
 
 void board::initBoardGrid() {
     //top left gridbox
-    this->grid_[0].setOrigin(sf::Vector2f(0.f,175.f));
-    this->grid_[0].setPosition(12.5,185.f);
+    this->grid_[0].setOrigin(sf::Vector2f(175.f,0.f));
+    this->grid_[0].setPosition(187.5,10.f);
     this->grid_[0].setSize(sf::Vector2f(350.f,215.f));
     this->grid_[0].setFillColor(sf::Color::Blue);
+
+    //top middle gridbox
+    this->grid_[1].setOrigin(sf::Vector2f(175.f,0.f));
+    this->grid_[1].setPosition(600.f,10.f);
+    this->grid_[1].setSize(sf::Vector2f(350.f,215.f));
+    this->grid_[1].setFillColor(sf::Color::Blue);
+
+    //top right gridbox
+    this->grid_[2].setOrigin(sf::Vector2f(175.f,0.f));
+    this->grid_[2].setPosition(1012.5,10.f);
+    this->grid_[2].setSize(sf::Vector2f(350.f,215.f));
+    this->grid_[2].setFillColor(sf::Color::Blue);
 }
