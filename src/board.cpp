@@ -62,4 +62,41 @@ void board::initBoardGrid() {
     this->grid_[2].setPosition(1012.5,10.f);
     this->grid_[2].setSize(sf::Vector2f(350.f,215.f));
     this->grid_[2].setFillColor(sf::Color::Blue);
+
+    //middle left gridbox
+    this->grid_[3].setOrigin(sf::Vector2f(175.f,0.f));
+    this->grid_[3].setPosition(187.5,292.f);
+    this->grid_[3].setSize(sf::Vector2f(350.f,215.f));
+    this->grid_[3].setFillColor(sf::Color::Blue);
+
+    //middle middle gridbox
+    this->grid_[4].setOrigin(sf::Vector2f(175.f,0.f));
+    this->grid_[4].setPosition(600.f,292.f);
+    this->grid_[4].setSize(sf::Vector2f(350.f,215.f));
+    this->grid_[4].setFillColor(sf::Color::Blue);
+
+    //middle right gridbox
+    this->grid_[5].setOrigin(sf::Vector2f(175.f,0.f));
+    this->grid_[5].setPosition(1012.5,292.f);
+    this->grid_[5].setSize(sf::Vector2f(350.f,215.f));
+    this->grid_[5].setFillColor(sf::Color::Blue);
+
+    //bottom left gridbox
+    this->grid_[6].setOrigin(sf::Vector2f(175.f,0.f));
+    this->grid_[6].setPosition(187.5,572.5);
+    this->grid_[6].setSize(sf::Vector2f(350.f,215.f));
+    this->grid_[6].setFillColor(sf::Color::Blue);
+
+    //bottom middle gridbox
+    this->grid_[7].setOrigin(sf::Vector2f(175.f,0.f));
+    this->grid_[7].setPosition(600.f,572.5);
+    this->grid_[7].setSize(sf::Vector2f(350.f,215.f));
+    this->grid_[7].setFillColor(sf::Color::Blue);
+
+    //bottom right gridbox
+    this->grid_[8].setOrigin(sf::Vector2f(175.f,0.f));
+    this->grid_[8].setPosition(1012.5,572.5);
+    this->grid_[8].setSize(sf::Vector2f(350.f,215.f));
+    this->grid_[8].setFillColor(sf::Color::Blue);
+
 }
