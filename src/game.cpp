@@ -97,6 +97,7 @@ void game::pollEvents() {
     
     while (this->window_->pollEvent(this->window_event_))
         {
+            //Switch case to handle window events
             switch (this->window_event_.type)
             {
                 case sf::Event::Closed:
@@ -118,8 +119,18 @@ void game::pollEvents() {
                 {
                         this->state_ = Ingame;
                 }
-             
             }
 
-    }
+            //for - if statements to handle grid presses:
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->state_ == Ingame) 
+            {
+                for (int i = 0; i < 9; i ++) 
+                {
+                    if (Board_.getHitboxGrid(i).contains(this->mousePosView))
+                    {
+                        Board_.updateBoard(i);
+                    }
+                }
+            }
+         }
 }

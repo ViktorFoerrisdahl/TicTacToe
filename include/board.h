@@ -19,10 +19,11 @@ public:
     board();
 
     //functions:
-    void updateBoard();
+    void updateBoard(int index);
     void initBoard();
     void initBoardGrid();
     sf::RectangleShape boardInfo(int index);
     sf::RectangleShape boardGrid(int index);
+    sf::FloatRect getHitboxGrid(int index);
 };
 

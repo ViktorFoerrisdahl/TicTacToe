@@ -3,21 +3,34 @@
 
 //public functions---------------
 
-board::board() {
+board::board() 
+{
     this->initBoard();
     this->initBoardGrid();
 }
 
-sf::RectangleShape board::boardInfo(int index) {
+sf::RectangleShape board::boardInfo(int index) 
+{
     return game_lines_[index];
 }
 
-sf::RectangleShape board::boardGrid(int index) {
+sf::RectangleShape board::boardGrid(int index) 
+{
     return grid_[index];
 }
 
+sf::FloatRect board::getHitboxGrid(int index)
+{
+    return grid_[index].getGlobalBounds();
+}
 
-void board::initBoard() {
+void board::updateBoard(int index)
+{
+    this->grid_[index].setFillColor(sf::Color::Red);
+}
+
+void board::initBoard()
+{
     //Left vertical line
     this->game_lines_[0].setOrigin(sf::Vector2f(25.f,0.f));
     this->game_lines_[0].setPosition(400.f,0.f);
@@ -41,7 +54,6 @@ void board::initBoard() {
     this->game_lines_[3].setPosition(0.f,532.f);
     this->game_lines_[3].setSize(sf::Vector2f(1200.f,50.f));
     this->game_lines_[3].setFillColor(sf::Color::White);
-
 }
 
 void board::initBoardGrid() {
