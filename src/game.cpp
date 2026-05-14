@@ -112,15 +112,6 @@ void game::pollEvents() {
                 break;
             }
 
-            //checks if mouse button is pressed on the start text
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) 
-            {
-                if ((startMenu_.getButtonHitbox()).contains(this->mousePosView) && this->state_ == Menu) 
-                {
-                        this->state_ = Ingame;
-                }
-            }
-
             //for - if statements to handle grid presses:
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->state_ == Ingame) 
             {
@@ -132,5 +123,18 @@ void game::pollEvents() {
                     }
                 }
             }
+
+            //checks if mouse button is pressed on the start text
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) 
+            {
+                if ((startMenu_.getButtonHitbox()).contains(this->mousePosView) && this->state_ == Menu) 
+                {
+                        this->state_ = Ingame;
+                        for (int i = 0; i < 100000000; i++) {
+                            //delay
+                        }
+                }
+            }
+
          }
 }
