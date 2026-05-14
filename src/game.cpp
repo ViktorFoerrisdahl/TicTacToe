@@ -194,6 +194,71 @@ void game::pollEvents() {
                 {
                     this->state_ = GameOver;
                 }
+
+                int temp3{};
+                //check if we have a winner left vertical line
+                for (int i = 0; i < 7; i++) 
+                {
+                    temp3 += Board_.getGridValue(i);
+                    i++;
+                    i++;
+                }
+                if (temp3 == 21 || temp3 == 30) 
+                {
+                    this->state_ = GameOver;
+                }
+
+                int temp4{};
+                //check if we have a winner middle vertical line
+                for (int i = 1; i < 8; i++) 
+                {
+                    temp4 += Board_.getGridValue(i);
+                    i++;
+                    i++;
+                }
+                if (temp4 == 21 || temp4 == 30) 
+                {
+                    this->state_ = GameOver;
+                }
+
+                int temp5{};
+                //check if we have a winner right vertical line
+                for (int i = 2; i < 9; i++) 
+                {
+                    temp5 += Board_.getGridValue(i);
+                    i++;
+                    i++;
+                }
+                if (temp5 == 21 || temp5 == 30) 
+                {
+                    this->state_ = GameOver;
+                }
+
+                int temp6{};
+                //check if we have a winner from left top to right bottom
+                for (int i = 0; i < 9; i++) 
+                {
+                    temp6 += Board_.getGridValue(i);
+                    i++;
+                    i++;
+                    i++;
+                }
+                if (temp6 == 21 || temp6 == 30) 
+                {
+                    this->state_ = GameOver;
+                }
+
+                int temp7{};
+                //check if we have a winner from right top to left bottom
+                for (int i = 2; i < 7; i++) 
+                {
+                    temp7 += Board_.getGridValue(i);
+                    i++;
+                }
+                if (temp7 == 21 || temp7 == 30) 
+                {
+                    this->state_ = GameOver;
+                }
             }
          }
 }
