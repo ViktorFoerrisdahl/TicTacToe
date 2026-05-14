@@ -97,6 +97,11 @@ void game::render() {
         break;
     
     case GameOver:
+        //add gameover menu
+        this->window_->draw(startMenu_.initGameoverTextAndReturnIt());
+
+        //draw start button
+        this->window_->draw(startMenu_.initRestartBottonTextAndReturnIt());
         break;
 
     default:
@@ -135,6 +140,9 @@ void game::pollEvents() {
                     {
                         Board_.updateBoard(i, this->turn_);
                         switchTurn();
+                        for (int i = 0; i < 100000000; i++) {
+                            //delay
+                        }
                     }
                 }
             }
@@ -151,5 +159,41 @@ void game::pollEvents() {
                 }
             }
 
+            //Game logic if statement:
+            if (this->state_ == Ingame) 
+            {
+                int temp{};
+                //check if we have a winner in the top horizontial line
+                for (int i = 0; i < 3; i++) 
+                {
+                    temp += Board_.getGridValue(i);
+                }
+                if (temp == 21 || temp == 30) 
+                {
+                    this->state_ = GameOver;
+                }
+
+                int temp1{};
+                //check if we have a winner in the middle horizontial line
+                for (int i = 3; i < 6; i++) 
+                {
+                    temp1 += Board_.getGridValue(i);
+                }
+                if (temp1 == 21 || temp1 == 30) 
+                {
+                    this->state_ = GameOver;
+                }
+
+                int temp2{};
+                //check if we have a winner in the bottom horizontial line
+                for (int i = 6; i < 9; i++) 
+                {
+                    temp2 += Board_.getGridValue(i);
+                }
+                if (temp2 == 21 || temp2 == 30) 
+                {
+                    this->state_ = GameOver;
+                }
+            }
          }
 }

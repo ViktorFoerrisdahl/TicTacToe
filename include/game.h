@@ -19,8 +19,8 @@ enum game_States {
 };
 
 enum Turn {
-    X,
-    O,
+    X = 10,
+    O = 7,
 };
 
 class startMenu;

@@ -7,6 +7,7 @@
 startMenu::startMenu() {
     this->initFont();
     this->hitboxButton_ = buttonText_.getGlobalBounds();
+    this->restartBottonTextHitbox_ = restartBottonText_.getGlobalBounds();
 }
 
 //init font and check if it is loaded in correctly.
@@ -20,6 +21,10 @@ void startMenu::initFont() {
 
 sf::FloatRect startMenu::getButtonHitbox() {
     return this->hitboxButton_ = buttonText_.getGlobalBounds();
+}
+
+sf::FloatRect startMenu::getRestartBottonHitbox() {
+    return this->restartBottonTextHitbox_ = restartBottonText_.getGlobalBounds(); 
 }
 
 //init welcome text and return it drawing function
@@ -80,4 +85,64 @@ sf::Text startMenu::initButtonTextAndReturnIt() {
     this->buttonText_.setOutlineThickness(1.f);
 
     return this->buttonText_;
+}
+
+//init gameover text and return it drawing function
+sf::Text startMenu::initGameoverTextAndReturnIt() {
+
+    //set the font
+    this->gameOverText_.setFont(this->font_);
+
+    // set the string to display
+    this->gameOverText_.setString("GAME OVER!");
+    
+    // set the character size
+    this->gameOverText_.setCharacterSize(90); // in pixels, not points!
+
+    // set the color
+    this->gameOverText_.setFillColor(sf::Color::Blue);
+
+    // set the text style
+    this->gameOverText_.setStyle(sf::Text::Bold);
+
+    // set the placement (middle)
+    this->gameOverText_.setPosition(357.f, 150.f);
+
+    //set outline
+    this->gameOverText_.setOutlineColor(sf::Color::Red);
+
+    //set outline size
+    this->gameOverText_.setOutlineThickness(1.f);
+
+    return this->gameOverText_;
+}
+
+//init button text and return it:
+sf::Text startMenu::initRestartBottonTextAndReturnIt() {
+    
+        //set the font
+    this->restartBottonText_.setFont(this->font_);
+
+    // set the string to display
+    this->restartBottonText_.setString("RESTART");
+    
+    // set the character size
+    this->restartBottonText_.setCharacterSize(55); // in pixels, not points!
+
+    // set the color
+    this->restartBottonText_.setFillColor(sf::Color::Red);
+
+    // set the text style
+    this->restartBottonText_.setStyle(sf::Text::Bold);
+
+    // set the placement (middle)
+    this->restartBottonText_.setPosition(510.f, 350.f);
+
+    //set outline
+    this->restartBottonText_.setOutlineColor(sf::Color::Blue);
+
+    //set outline size
+    this->restartBottonText_.setOutlineThickness(1.f);
+
+    return this->restartBottonText_;
 }

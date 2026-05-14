@@ -12,6 +12,7 @@ private:
     //varibles
     sf::RectangleShape game_lines_[4];
     sf::RectangleShape grid_[9];
+    int grid_values_[9];
 
 public:
     //constructor
@@ -21,8 +22,12 @@ public:
     void updateBoard(int index, int turn);
     void initBoard();
     void initBoardGrid();
+    void initBoardGridValues();
+    void setGridValue(int index, int value);
     sf::RectangleShape boardInfo(int index);
     sf::RectangleShape boardGrid(int index);
     sf::FloatRect getHitboxGrid(int index);
+    int getGridValue(int index);
+
 };
 
