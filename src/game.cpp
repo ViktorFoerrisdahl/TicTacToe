@@ -102,6 +102,12 @@ void game::render() {
 
         //draw start button
         this->window_->draw(startMenu_.initRestartBottonTextAndReturnIt());
+
+        //////////////////////////////////////////////
+        //REMOVE WHEN GAME IS DONE
+        // function to get position to use for measurements:
+        // std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        //////////////////////////////////////////////
         break;
 
     default:

@@ -60,7 +60,7 @@ sf::Text startMenu::initWelcomeAndReturnIt() {
 //init button text and return it:
 sf::Text startMenu::initButtonTextAndReturnIt() {
     
-        //set the font
+    //set the font
     this->buttonText_.setFont(this->font_);
 
     // set the string to display
@@ -106,7 +106,7 @@ sf::Text startMenu::initGameoverTextAndReturnIt() {
     this->gameOverText_.setStyle(sf::Text::Bold);
 
     // set the placement (middle)
-    this->gameOverText_.setPosition(357.f, 150.f);
+    this->gameOverText_.setPosition(325.f, 150.f);
 
     //set outline
     this->gameOverText_.setOutlineColor(sf::Color::Red);
@@ -136,7 +136,7 @@ sf::Text startMenu::initRestartBottonTextAndReturnIt() {
     this->restartBottonText_.setStyle(sf::Text::Bold);
 
     // set the placement (middle)
-    this->restartBottonText_.setPosition(510.f, 350.f);
+    this->restartBottonText_.setPosition(475.f, 350.f);
 
     //set outline
     this->restartBottonText_.setOutlineColor(sf::Color::Blue);
