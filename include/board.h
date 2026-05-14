@@ -12,14 +12,13 @@ private:
     //varibles
     sf::RectangleShape game_lines_[4];
     sf::RectangleShape grid_[9];
-    //int grid[3][3];
 
 public:
     //constructor
     board();
 
     //functions:
-    void updateBoard(int index);
+    void updateBoard(int index, int turn);
     void initBoard();
     void initBoardGrid();
     sf::RectangleShape boardInfo(int index);

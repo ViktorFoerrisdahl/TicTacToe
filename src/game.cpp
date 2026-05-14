@@ -7,6 +7,7 @@
 void game::initVariables() {
     this->window_ = nullptr;
     this->state_ = Menu;
+    this->turn_ = X;
 }
 
 void game::initWindow() {
@@ -17,8 +18,8 @@ void game::initWindow() {
 }
 
 //public functions---------------
-
-game::game() {
+game::game()
+{
     this->initVariables();
     this->initWindow();
     this->Board_.initBoard();
@@ -32,6 +33,19 @@ game::~game() {
 const bool game::getWindowStatus() const {
     return this->window_->isOpen();
 }
+
+void game::switchTurn()
+{
+    if (this->turn_ == X) 
+    {
+        this->turn_ = O;
+    } 
+    else 
+    {
+        this->turn_ = X;
+    }
+}
+
 
 void game::updateMousePos() {
     this->mousePosWindow = sf::Mouse::getPosition(*this->window_);
@@ -112,14 +126,15 @@ void game::pollEvents() {
                 break;
             }
 
-            //for - if statements to handle grid presses:
+            //for - if statements to handle grid presses and switch turn
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->state_ == Ingame) 
             {
                 for (int i = 0; i < 9; i ++) 
                 {
                     if (Board_.getHitboxGrid(i).contains(this->mousePosView))
                     {
-                        Board_.updateBoard(i);
+                        Board_.updateBoard(i, this->turn_);
+                        switchTurn();
                     }
                 }
             }

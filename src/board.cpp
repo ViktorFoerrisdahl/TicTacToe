@@ -1,6 +1,5 @@
 #include "board.h"
 
-
 //public functions---------------
 
 board::board() 
@@ -24,9 +23,14 @@ sf::FloatRect board::getHitboxGrid(int index)
     return grid_[index].getGlobalBounds();
 }
 
-void board::updateBoard(int index)
+void board::updateBoard(int index, int turn)
 {
-    this->grid_[index].setFillColor(sf::Color::Red);
+    if (turn == 0) {
+        this->grid_[index].setFillColor(sf::Color::Red);
+    } else {
+        this->grid_[index].setFillColor(sf::Color::Green);
+    }
+    
 }
 
 void board::initBoard()

@@ -18,6 +18,11 @@ enum game_States {
     GameOver
 };
 
+enum Turn {
+    X,
+    O,
+};
+
 class startMenu;
 
 class game {
@@ -34,6 +39,8 @@ private:
 
     enum game_States state_;
 
+    enum Turn turn_;
+
     //private functions:
     void initVariables();
     void initWindow();
@@ -42,7 +49,6 @@ public:
     
     sf::Vector2i mousePosWindow;
     sf::Vector2f mousePosView;
-
     
     //constructor / deconstructor
     game();
@@ -57,6 +63,7 @@ public:
     void update();
     void render();
     void pollEvents();
+    void switchTurn();
 };
 
 
