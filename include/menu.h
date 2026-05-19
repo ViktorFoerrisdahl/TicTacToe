@@ -23,8 +23,11 @@ sf::Text buttonText_;
 sf::FloatRect hitboxButton_;
 
 //Gameover 
-//text
+//Gameover Text
 sf::Text gameOverText_;
+
+//Gameover Text
+sf::Text winnerDisplayText_;
 
 //button
 //text
@@ -51,11 +54,13 @@ sf::Text initWelcomeAndReturnIt();
 sf::Text initButtonTextAndReturnIt();
 
 //game over menu
-
+//restart text and button
 sf::FloatRect getRestartBottonHitbox();
-
 sf::Text initRestartBottonTextAndReturnIt();
-
+//game over text
 sf::Text initGameoverTextAndReturnIt();
+//winner text
+sf::Text initWinnerDisplayTextAndReturnIt(bool x);
+
 
 };

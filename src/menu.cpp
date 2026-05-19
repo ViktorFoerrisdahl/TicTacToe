@@ -106,13 +106,13 @@ sf::Text startMenu::initGameoverTextAndReturnIt() {
     this->gameOverText_.setStyle(sf::Text::Bold);
 
     // set the placement (middle)
-    this->gameOverText_.setPosition(325.f, 150.f);
+    this->gameOverText_.setPosition(325.f, 100.f);
 
-    //set outline
-    this->gameOverText_.setOutlineColor(sf::Color::Red);
+    // //set outline
+    // this->gameOverText_.setOutlineColor(sf::Color::Red);
 
-    //set outline size
-    this->gameOverText_.setOutlineThickness(1.f);
+    // //set outline size
+    // this->gameOverText_.setOutlineThickness(1.f);
 
     return this->gameOverText_;
 }
@@ -136,7 +136,7 @@ sf::Text startMenu::initRestartBottonTextAndReturnIt() {
     this->restartBottonText_.setStyle(sf::Text::Bold);
 
     // set the placement (middle)
-    this->restartBottonText_.setPosition(475.f, 350.f);
+    this->restartBottonText_.setPosition(460.f, 550.f);
 
     //set outline
     this->restartBottonText_.setOutlineColor(sf::Color::Blue);
@@ -145,4 +145,65 @@ sf::Text startMenu::initRestartBottonTextAndReturnIt() {
     this->restartBottonText_.setOutlineThickness(1.f);
 
     return this->restartBottonText_;
+}
+
+//init winner text and return it:
+sf::Text startMenu::initWinnerDisplayTextAndReturnIt(bool x) 
+{
+    if (x) 
+    {
+    //set the font
+    this->winnerDisplayText_.setFont(this->font_);
+
+    // set the string to display
+    this->winnerDisplayText_.setString("X WINS!");
+    
+    // set the character size
+    this->winnerDisplayText_.setCharacterSize(75); // in pixels, not points!
+
+    // set the color
+    this->winnerDisplayText_.setFillColor(sf::Color::Red);
+
+    // set the text style
+    this->winnerDisplayText_.setStyle(sf::Text::Bold);
+
+    // set the placement (middle)
+    this->winnerDisplayText_.setPosition(460.f, 250.f);
+
+    //set outline
+    this->winnerDisplayText_.setOutlineColor(sf::Color::Blue);
+
+    //set outline size
+    this->winnerDisplayText_.setOutlineThickness(1.f);
+
+    return this->winnerDisplayText_;
+    }
+    else 
+    {
+    //set the font
+    this->winnerDisplayText_.setFont(this->font_);
+
+    // set the string to display
+    this->winnerDisplayText_.setString("O WINS!");
+    
+    // set the character size
+    this->winnerDisplayText_.setCharacterSize(75); // in pixels, not points!
+
+    // set the color
+    this->winnerDisplayText_.setFillColor(sf::Color::Blue);
+
+    // set the text style
+    this->winnerDisplayText_.setStyle(sf::Text::Bold);
+
+    // set the placement (middle)
+    this->winnerDisplayText_.setPosition(452.f, 250.f);
+
+    //set outline
+    this->winnerDisplayText_.setOutlineColor(sf::Color::Red);
+
+    //set outline size
+    this->winnerDisplayText_.setOutlineThickness(1.f);
+
+    return this->winnerDisplayText_;
+    }
 }

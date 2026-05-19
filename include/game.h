@@ -41,6 +41,8 @@ private:
 
     enum Turn turn_;
 
+    bool crossWins_;
+
     //private functions:
     void initVariables();
     void initWindow();
@@ -49,6 +51,7 @@ public:
     
     sf::Vector2i mousePosWindow;
     sf::Vector2f mousePosView;
+    bool isCrossWinner();
     
     //constructor / deconstructor
     game();

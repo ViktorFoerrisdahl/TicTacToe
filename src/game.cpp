@@ -8,6 +8,7 @@ void game::initVariables() {
     this->window_ = nullptr;
     this->state_ = Menu;
     this->turn_ = X;
+    this->crossWins_ = false;
 }
 
 void game::initWindow() {
@@ -32,6 +33,11 @@ game::~game() {
 
 const bool game::getWindowStatus() const {
     return this->window_->isOpen();
+}
+
+bool game::isCrossWinner() 
+{
+    return this->crossWins_;
 }
 
 void game::switchTurn()
@@ -100,13 +106,16 @@ void game::render() {
         //add gameover menu
         this->window_->draw(startMenu_.initGameoverTextAndReturnIt());
 
+        //draw winner text
+        this->window_->draw(startMenu_.initWinnerDisplayTextAndReturnIt(isCrossWinner()));
+
         //draw start button
         this->window_->draw(startMenu_.initRestartBottonTextAndReturnIt());
 
         //////////////////////////////////////////////
         //REMOVE WHEN GAME IS DONE
         // function to get position to use for measurements:
-        // std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
         //////////////////////////////////////////////
         break;
 
@@ -176,6 +185,10 @@ void game::pollEvents() {
                 }
                 if (temp == 21 || temp == 30) 
                 {
+                    if (temp == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
                     this->state_ = GameOver;
                 }
 
@@ -187,6 +200,10 @@ void game::pollEvents() {
                 }
                 if (temp1 == 21 || temp1 == 30) 
                 {
+                    if (temp1 == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
                     this->state_ = GameOver;
                 }
 
@@ -198,6 +215,10 @@ void game::pollEvents() {
                 }
                 if (temp2 == 21 || temp2 == 30) 
                 {
+                    if (temp2 == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
                     this->state_ = GameOver;
                 }
 
@@ -211,6 +232,10 @@ void game::pollEvents() {
                 }
                 if (temp3 == 21 || temp3 == 30) 
                 {
+                    if (temp3 == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
                     this->state_ = GameOver;
                 }
 
@@ -224,6 +249,10 @@ void game::pollEvents() {
                 }
                 if (temp4 == 21 || temp4 == 30) 
                 {
+                    if (temp4 == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
                     this->state_ = GameOver;
                 }
 
@@ -237,6 +266,10 @@ void game::pollEvents() {
                 }
                 if (temp5 == 21 || temp5 == 30) 
                 {
+                    if (temp == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
                     this->state_ = GameOver;
                 }
 
@@ -251,6 +284,10 @@ void game::pollEvents() {
                 }
                 if (temp6 == 21 || temp6 == 30) 
                 {
+                    if (temp6 == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
                     this->state_ = GameOver;
                 }
 
@@ -263,6 +300,10 @@ void game::pollEvents() {
                 }
                 if (temp7 == 21 || temp7 == 30) 
                 {
+                    if (temp7 == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
                     this->state_ = GameOver;
                 }
             }
