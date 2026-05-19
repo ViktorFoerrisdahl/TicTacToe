@@ -174,6 +174,18 @@ void game::pollEvents() {
                 }
             }
 
+            //checks if mouse button is pressed on the restart text
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) 
+            {
+                if ((startMenu_.getRestartBottonHitbox()).contains(this->mousePosView) && this->state_ == GameOver) 
+                {
+                        this->state_ = Menu;
+                        for (int i = 0; i < 100000000; i++) {
+                            //delay
+                        }
+                }
+            }
+
             //Game logic if statement:
             if (this->state_ == Ingame) 
             {
