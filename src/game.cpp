@@ -189,6 +189,8 @@ void game::pollEvents()
                 if ((startMenu_.getRestartBottonHitbox()).contains(this->mousePosView) && this->state_ == GameOver) 
                 {   
                     Board_.resetGridValueAndSymbol();
+                    this->turn_ = X;
+                    this->crossWins_ = false;
                     this->state_ = Menu;
                     for (int i = 0; i < 100000000; i++) 
                         {
