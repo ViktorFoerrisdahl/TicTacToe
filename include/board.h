@@ -24,10 +24,12 @@ public:
     void initBoardGrid();
     void initBoardGridValues();
     void setGridValue(int index, int value);
+    void resetGridValueAndSymbol();
     sf::RectangleShape boardInfo(int index);
     sf::RectangleShape boardGrid(int index);
     sf::FloatRect getHitboxGrid(int index);
     int getGridValue(int index);
+    
 
 };
 

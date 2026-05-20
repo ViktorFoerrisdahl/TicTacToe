@@ -4,13 +4,16 @@
 
 //private functions---------
 
-void game::initVariables() {
+void game::initVariables() 
+{
     this->window_ = nullptr;
     this->state_ = Menu;
     this->turn_ = X;
+    this->crossWins_ = false;
 }
 
-void game::initWindow() {
+void game::initWindow() 
+{
     this->VideoMode_.width = 1200;
     this->VideoMode_.height = 800;
     this->window_ = new sf::RenderWindow(sf::VideoMode(this->VideoMode_), "Tic tac toe", sf::Style::Titlebar | sf::Style::Close);
@@ -26,12 +29,19 @@ game::game()
     this->startMenu_.getButtonHitbox();
 }
 
-game::~game() {
+game::~game() 
+{
     delete this->window_;
 }
 
-const bool game::getWindowStatus() const {
+const bool game::getWindowStatus() const 
+{
     return this->window_->isOpen();
+}
+
+bool game::isCrossWinner() 
+{
+    return this->crossWins_;
 }
 
 void game::switchTurn()
@@ -47,17 +57,20 @@ void game::switchTurn()
 }
 
 
-void game::updateMousePos() {
+void game::updateMousePos() 
+{
     this->mousePosWindow = sf::Mouse::getPosition(*this->window_);
     this->mousePosView = this->window_->mapPixelToCoords(this->mousePosWindow);
 }
 
-void game::update() {
+void game::update() 
+{
     this->updateMousePos();
     this->pollEvents();
 }
 
-void game::render() {
+void game::render() 
+{
     //clears the old frame:
     this->window_->clear();
 
@@ -100,8 +113,18 @@ void game::render() {
         //add gameover menu
         this->window_->draw(startMenu_.initGameoverTextAndReturnIt());
 
+        //draw winner text
+        this->window_->draw(startMenu_.initWinnerDisplayTextAndReturnIt(isCrossWinner()));
+
         //draw start button
         this->window_->draw(startMenu_.initRestartBottonTextAndReturnIt());
+
+        //////////////////////////////////////////////
+        //REMOVE WHEN GAME IS DONE
+        // function to get position to use for measurements:
+        // std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        //////////////////////////////////////////////
+
         break;
 
     default:
@@ -112,7 +135,8 @@ void game::render() {
     this->window_->display();
 }
 
-void game::pollEvents() {
+void game::pollEvents() 
+{
     
     while (this->window_->pollEvent(this->window_event_))
         {
@@ -159,6 +183,20 @@ void game::pollEvents() {
                 }
             }
 
+            //checks if mouse button is pressed on the restart text
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) 
+            {
+                if ((startMenu_.getRestartBottonHitbox()).contains(this->mousePosView) && this->state_ == GameOver) 
+                {   
+                    Board_.resetGridValueAndSymbol();
+                    this->state_ = Menu;
+                    for (int i = 0; i < 100000000; i++) 
+                        {
+                        //delay
+                        }
+                }
+            }
+
             //Game logic if statement:
             if (this->state_ == Ingame) 
             {
@@ -170,6 +208,11 @@ void game::pollEvents() {
                 }
                 if (temp == 21 || temp == 30) 
                 {
+                    if (temp == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
+                    temp = 0;
                     this->state_ = GameOver;
                 }
 
@@ -181,6 +224,11 @@ void game::pollEvents() {
                 }
                 if (temp1 == 21 || temp1 == 30) 
                 {
+                    if (temp1 == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
+                    temp1 = 0;
                     this->state_ = GameOver;
                 }
 
@@ -192,6 +240,11 @@ void game::pollEvents() {
                 }
                 if (temp2 == 21 || temp2 == 30) 
                 {
+                    if (temp2 == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
+                    temp2 = 0;
                     this->state_ = GameOver;
                 }
 
@@ -205,6 +258,11 @@ void game::pollEvents() {
                 }
                 if (temp3 == 21 || temp3 == 30) 
                 {
+                    if (temp3 == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
+                    temp3 = 0;
                     this->state_ = GameOver;
                 }
 
@@ -218,6 +276,11 @@ void game::pollEvents() {
                 }
                 if (temp4 == 21 || temp4 == 30) 
                 {
+                    if (temp4 == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
+                    temp4 = 0;
                     this->state_ = GameOver;
                 }
 
@@ -231,6 +294,11 @@ void game::pollEvents() {
                 }
                 if (temp5 == 21 || temp5 == 30) 
                 {
+                    if (temp == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
+                    temp5 = 0;
                     this->state_ = GameOver;
                 }
 
@@ -245,6 +313,11 @@ void game::pollEvents() {
                 }
                 if (temp6 == 21 || temp6 == 30) 
                 {
+                    if (temp6 == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
+                    temp6 = 0;
                     this->state_ = GameOver;
                 }
 
@@ -257,8 +330,13 @@ void game::pollEvents() {
                 }
                 if (temp7 == 21 || temp7 == 30) 
                 {
+                    if (temp7 == 30) 
+                    {
+                        this->crossWins_ = true;
+                    }
+                    temp7 = 0;
                     this->state_ = GameOver;
-                }
+                } 
             }
          }
 }

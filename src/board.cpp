@@ -24,7 +24,8 @@ sf::FloatRect board::getHitboxGrid(int index)
     return grid_[index].getGlobalBounds();
 }
 
-int board::getGridValue(int index) {
+int board::getGridValue(int index) 
+{
     return this->grid_values_[index];
 }
 
@@ -33,6 +34,15 @@ void board::initBoardGridValues()
     for (int i = 0; i < 9; i++) {
         this->grid_values_[i] = 0;
     }
+}
+
+void board::resetGridValueAndSymbol() 
+{
+    for (int i = 0; i < 9; i++)
+        {
+            this->initBoardGridValues();
+            this->initBoardGrid();
+        }
 }
 
 void board::setGridValue(int index, int value) 
