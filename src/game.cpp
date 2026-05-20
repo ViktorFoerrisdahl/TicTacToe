@@ -96,9 +96,12 @@ void game::render()
             this->window_->draw(Board_.boardInfo(i));
             }
 
-        //display grid
+        //display grid & symbols
         for (int i = 0; i < 9; i++) {
+            //draw grid (black boxes)
             this->window_->draw(Board_.boardGrid(i));
+            //draw circles if they are placed
+            this->window_->draw(Board_.circleInfo(i));
         }
 
         //////////////////////////////////////////////
