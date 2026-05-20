@@ -4,14 +4,16 @@
 
 //private functions---------
 
-void game::initVariables() {
+void game::initVariables() 
+{
     this->window_ = nullptr;
     this->state_ = Menu;
     this->turn_ = X;
     this->crossWins_ = false;
 }
 
-void game::initWindow() {
+void game::initWindow() 
+{
     this->VideoMode_.width = 1200;
     this->VideoMode_.height = 800;
     this->window_ = new sf::RenderWindow(sf::VideoMode(this->VideoMode_), "Tic tac toe", sf::Style::Titlebar | sf::Style::Close);
@@ -27,11 +29,13 @@ game::game()
     this->startMenu_.getButtonHitbox();
 }
 
-game::~game() {
+game::~game() 
+{
     delete this->window_;
 }
 
-const bool game::getWindowStatus() const {
+const bool game::getWindowStatus() const 
+{
     return this->window_->isOpen();
 }
 
@@ -53,17 +57,20 @@ void game::switchTurn()
 }
 
 
-void game::updateMousePos() {
+void game::updateMousePos() 
+{
     this->mousePosWindow = sf::Mouse::getPosition(*this->window_);
     this->mousePosView = this->window_->mapPixelToCoords(this->mousePosWindow);
 }
 
-void game::update() {
+void game::update() 
+{
     this->updateMousePos();
     this->pollEvents();
 }
 
-void game::render() {
+void game::render() 
+{
     //clears the old frame:
     this->window_->clear();
 
@@ -115,8 +122,9 @@ void game::render() {
         //////////////////////////////////////////////
         //REMOVE WHEN GAME IS DONE
         // function to get position to use for measurements:
-        std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        // std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
         //////////////////////////////////////////////
+
         break;
 
     default:
@@ -127,7 +135,8 @@ void game::render() {
     this->window_->display();
 }
 
-void game::pollEvents() {
+void game::pollEvents() 
+{
     
     while (this->window_->pollEvent(this->window_event_))
         {
@@ -178,10 +187,12 @@ void game::pollEvents() {
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) 
             {
                 if ((startMenu_.getRestartBottonHitbox()).contains(this->mousePosView) && this->state_ == GameOver) 
-                {
-                        this->state_ = Menu;
-                        for (int i = 0; i < 100000000; i++) {
-                            //delay
+                {   
+                    Board_.resetGridValueAndSymbol();
+                    this->state_ = Menu;
+                    for (int i = 0; i < 100000000; i++) 
+                        {
+                        //delay
                         }
                 }
             }
@@ -201,6 +212,7 @@ void game::pollEvents() {
                     {
                         this->crossWins_ = true;
                     }
+                    temp = 0;
                     this->state_ = GameOver;
                 }
 
@@ -216,6 +228,7 @@ void game::pollEvents() {
                     {
                         this->crossWins_ = true;
                     }
+                    temp1 = 0;
                     this->state_ = GameOver;
                 }
 
@@ -231,6 +244,7 @@ void game::pollEvents() {
                     {
                         this->crossWins_ = true;
                     }
+                    temp2 = 0;
                     this->state_ = GameOver;
                 }
 
@@ -248,6 +262,7 @@ void game::pollEvents() {
                     {
                         this->crossWins_ = true;
                     }
+                    temp3 = 0;
                     this->state_ = GameOver;
                 }
 
@@ -265,6 +280,7 @@ void game::pollEvents() {
                     {
                         this->crossWins_ = true;
                     }
+                    temp4 = 0;
                     this->state_ = GameOver;
                 }
 
@@ -282,6 +298,7 @@ void game::pollEvents() {
                     {
                         this->crossWins_ = true;
                     }
+                    temp5 = 0;
                     this->state_ = GameOver;
                 }
 
@@ -300,6 +317,7 @@ void game::pollEvents() {
                     {
                         this->crossWins_ = true;
                     }
+                    temp6 = 0;
                     this->state_ = GameOver;
                 }
 
@@ -316,8 +334,9 @@ void game::pollEvents() {
                     {
                         this->crossWins_ = true;
                     }
+                    temp7 = 0;
                     this->state_ = GameOver;
-                }
+                } 
             }
          }
 }

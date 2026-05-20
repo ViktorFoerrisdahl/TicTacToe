@@ -136,7 +136,7 @@ sf::Text startMenu::initRestartBottonTextAndReturnIt() {
     this->restartBottonText_.setStyle(sf::Text::Bold);
 
     // set the placement (middle)
-    this->restartBottonText_.setPosition(460.f, 550.f);
+    this->restartBottonText_.setPosition(460.f, 650.f);
 
     //set outline
     this->restartBottonText_.setOutlineColor(sf::Color::Blue);
