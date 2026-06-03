@@ -167,7 +167,7 @@ void game::pollEvents()
                     {
                         Board_.updateBoard(i, this->turn_);
                         switchTurn();
-                        for (int i = 0; i < 200000000; i++) {
+                        for (int i = 0; i < 400000000; i++) {
                             //delay
                         }
                     }
@@ -180,6 +180,8 @@ void game::pollEvents()
                 if ((startMenu_.getButtonHitbox()).contains(this->mousePosView) && this->state_ == Menu) 
                 {
                         this->state_ = Ingame;
+                        this->turn_ = X;
+                        this->crossWins_ = false;
                         for (int i = 0; i < 400000000; i++) {
                             //delay
                         }
