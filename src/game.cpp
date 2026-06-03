@@ -102,12 +102,14 @@ void game::render()
             this->window_->draw(Board_.boardGrid(i));
             //draw circles if they are placed
             this->window_->draw(Board_.circleInfo(i));
+            //draw crosses if they are placed
+            this->window_->draw(Board_.crossesInfo(i));
         }
 
         //////////////////////////////////////////////
         //REMOVE WHEN GAME IS DONE
         //function to get position to use for measurements:
-        //std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
         //////////////////////////////////////////////
 
         break;
