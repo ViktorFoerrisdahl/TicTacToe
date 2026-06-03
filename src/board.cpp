@@ -55,7 +55,7 @@ void board::resetGridValueAndSymbol()
             this->initBoardGridValues();
             this->initBoardGrid();
             this->initEmptyCircles();
-
+            this->initEmptyCrosses();
         }
 }
 
@@ -71,7 +71,7 @@ void board::updateBoard(int index, int turn)
         this->placeCircle(index);
     } else {
         this->grid_values_[index] = 10;
-        this->grid_[index].setFillColor(sf::Color::Blue);
+        this->placeCross(index);
     }
     
 }
@@ -83,7 +83,48 @@ void board::placeCircle(int index)
 
 void board::placeCross(int index) 
 {
-    this->crosses_[index].setOutlineColor(sf::Color::Blue);
+    switch (index)
+    {
+    case 0:
+        this->crosses_[0].setOutlineColor(sf::Color::Blue);
+        this->crosses_[0 + 1].setOutlineColor(sf::Color::Blue);
+        break;
+    case 1:
+        this->crosses_[2].setOutlineColor(sf::Color::Blue);
+        this->crosses_[2 + 1].setOutlineColor(sf::Color::Blue);
+        break;
+    case 2:
+        this->crosses_[4].setOutlineColor(sf::Color::Blue);
+        this->crosses_[4 + 1].setOutlineColor(sf::Color::Blue);
+        break;
+    case 3:
+        this->crosses_[6].setOutlineColor(sf::Color::Blue);
+        this->crosses_[6 + 1].setOutlineColor(sf::Color::Blue);
+        break;
+    case 4:
+        this->crosses_[8].setOutlineColor(sf::Color::Blue);
+        this->crosses_[8 + 1].setOutlineColor(sf::Color::Blue);
+        break;
+    case 5:
+        this->crosses_[10].setOutlineColor(sf::Color::Blue);
+        this->crosses_[10 + 1].setOutlineColor(sf::Color::Blue);
+        break;
+    case 6:
+        this->crosses_[12].setOutlineColor(sf::Color::Blue);
+        this->crosses_[12 + 1].setOutlineColor(sf::Color::Blue);
+        break;
+    case 7:
+        this->crosses_[14].setOutlineColor(sf::Color::Blue);
+        this->crosses_[14 + 1].setOutlineColor(sf::Color::Blue);
+        break;
+    case 8:
+        this->crosses_[16].setOutlineColor(sf::Color::Blue);
+        this->crosses_[16 + 1].setOutlineColor(sf::Color::Blue);
+        break;
+    default:
+        break;
+    }
+
 }
 
 void board::initBoard()
@@ -240,14 +281,14 @@ void board::initEmptyCrosses()
 {
      //top left gridbox
     this->crosses_[0].setPosition(277.5,31.f);
-    this->crosses_[0].setOutlineColor(sf::Color::Blue);
+    this->crosses_[0].setOutlineColor(sf::Color::Black);
     this->crosses_[0].setOutlineThickness(10);
     this->crosses_[0].setFillColor(sf::Color::Black);
     this->crosses_[0].setSize(sf::Vector2f(0.f,250.f));
     this->crosses_[0].setRotation(45.f);
     
     this->crosses_[1].setPosition(100.f,31.f);
-    this->crosses_[1].setOutlineColor(sf::Color::Blue);
+    this->crosses_[1].setOutlineColor(sf::Color::Black);
     this->crosses_[1].setOutlineThickness(10);
     this->crosses_[1].setFillColor(sf::Color::Black);
     this->crosses_[1].setSize(sf::Vector2f(0.f,250.f));
@@ -255,14 +296,14 @@ void board::initEmptyCrosses()
 
     //top middle gridbox
     this->crosses_[2].setPosition(687.5,31.f);
-    this->crosses_[2].setOutlineColor(sf::Color::Blue);
+    this->crosses_[2].setOutlineColor(sf::Color::Black);
     this->crosses_[2].setOutlineThickness(10);
     this->crosses_[2].setFillColor(sf::Color::Black);
     this->crosses_[2].setSize(sf::Vector2f(0.f,250.f));
     this->crosses_[2].setRotation(45.f);
     
     this->crosses_[3].setPosition(510.f,31.f);
-    this->crosses_[3].setOutlineColor(sf::Color::Blue);
+    this->crosses_[3].setOutlineColor(sf::Color::Black);
     this->crosses_[3].setOutlineThickness(10);
     this->crosses_[3].setFillColor(sf::Color::Black);
     this->crosses_[3].setSize(sf::Vector2f(0.f,250.f));
@@ -270,14 +311,14 @@ void board::initEmptyCrosses()
 
     //top right gridbox
     this->crosses_[4].setPosition(1100,31.f);
-    this->crosses_[4].setOutlineColor(sf::Color::Blue);
+    this->crosses_[4].setOutlineColor(sf::Color::Black);
     this->crosses_[4].setOutlineThickness(10);
     this->crosses_[4].setFillColor(sf::Color::Black);
     this->crosses_[4].setSize(sf::Vector2f(0.f,250.f));
     this->crosses_[4].setRotation(45.f);
     
     this->crosses_[5].setPosition(922.5,31.f);
-    this->crosses_[5].setOutlineColor(sf::Color::Blue);
+    this->crosses_[5].setOutlineColor(sf::Color::Black);
     this->crosses_[5].setOutlineThickness(10);
     this->crosses_[5].setFillColor(sf::Color::Black);
     this->crosses_[5].setSize(sf::Vector2f(0.f,250.f));
@@ -285,14 +326,14 @@ void board::initEmptyCrosses()
 
     //middle left gridbox
     this->crosses_[6].setPosition(277.5,310.f);
-    this->crosses_[6].setOutlineColor(sf::Color::Blue);
+    this->crosses_[6].setOutlineColor(sf::Color::Black);
     this->crosses_[6].setOutlineThickness(10);
     this->crosses_[6].setFillColor(sf::Color::Black);
     this->crosses_[6].setSize(sf::Vector2f(0.f,250.f));
     this->crosses_[6].setRotation(45.f);
 
     this->crosses_[7].setPosition(100.f,310.f);
-    this->crosses_[7].setOutlineColor(sf::Color::Blue);
+    this->crosses_[7].setOutlineColor(sf::Color::Black);
     this->crosses_[7].setOutlineThickness(10);
     this->crosses_[7].setFillColor(sf::Color::Black);
     this->crosses_[7].setSize(sf::Vector2f(0.f,250.f));
@@ -300,14 +341,14 @@ void board::initEmptyCrosses()
 
     //middle middle gridbox
     this->crosses_[8].setPosition(687.5,310.f);
-    this->crosses_[8].setOutlineColor(sf::Color::Blue);
+    this->crosses_[8].setOutlineColor(sf::Color::Black);
     this->crosses_[8].setOutlineThickness(10);
     this->crosses_[8].setFillColor(sf::Color::Black);
     this->crosses_[8].setSize(sf::Vector2f(0.f,250.f));
     this->crosses_[8].setRotation(45.f);
 
     this->crosses_[9].setPosition(510.f,310.f);
-    this->crosses_[9].setOutlineColor(sf::Color::Blue);
+    this->crosses_[9].setOutlineColor(sf::Color::Black);
     this->crosses_[9].setOutlineThickness(10);
     this->crosses_[9].setFillColor(sf::Color::Black);
     this->crosses_[9].setSize(sf::Vector2f(0.f,250.f));
@@ -315,14 +356,14 @@ void board::initEmptyCrosses()
 
     //middle right gridbox
     this->crosses_[10].setPosition(1100.f,310.f);
-    this->crosses_[10].setOutlineColor(sf::Color::Blue);
+    this->crosses_[10].setOutlineColor(sf::Color::Black);
     this->crosses_[10].setOutlineThickness(10);
     this->crosses_[10].setFillColor(sf::Color::Black);
     this->crosses_[10].setSize(sf::Vector2f(0.f,250.f));
     this->crosses_[10].setRotation(45.f);
 
     this->crosses_[11].setPosition(922.5,310.f);
-    this->crosses_[11].setOutlineColor(sf::Color::Blue);
+    this->crosses_[11].setOutlineColor(sf::Color::Black);
     this->crosses_[11].setOutlineThickness(10);
     this->crosses_[11].setFillColor(sf::Color::Black);
     this->crosses_[11].setSize(sf::Vector2f(0.f,250.f));
@@ -330,14 +371,14 @@ void board::initEmptyCrosses()
 
     //bottom left gridbox
     this->crosses_[12].setPosition(277.5,590.f);
-    this->crosses_[12].setOutlineColor(sf::Color::Blue);
+    this->crosses_[12].setOutlineColor(sf::Color::Black);
     this->crosses_[12].setOutlineThickness(10);
     this->crosses_[12].setFillColor(sf::Color::Black);
     this->crosses_[12].setSize(sf::Vector2f(0.f,250.f));
     this->crosses_[12].setRotation(45.f);
 
     this->crosses_[13].setPosition(100.f,590.f);
-    this->crosses_[13].setOutlineColor(sf::Color::Blue);
+    this->crosses_[13].setOutlineColor(sf::Color::Black);
     this->crosses_[13].setOutlineThickness(10);
     this->crosses_[13].setFillColor(sf::Color::Black);
     this->crosses_[13].setSize(sf::Vector2f(0.f,250.f));
@@ -345,14 +386,14 @@ void board::initEmptyCrosses()
 
     //bottom middle gridbox
     this->crosses_[14].setPosition(687.5,590.f);
-    this->crosses_[14].setOutlineColor(sf::Color::Blue);
+    this->crosses_[14].setOutlineColor(sf::Color::Black);
     this->crosses_[14].setOutlineThickness(10);
     this->crosses_[14].setFillColor(sf::Color::Black);
     this->crosses_[14].setSize(sf::Vector2f(0.f,250.f));
     this->crosses_[14].setRotation(45.f);
 
     this->crosses_[15].setPosition(510.f,590.f);
-    this->crosses_[15].setOutlineColor(sf::Color::Blue);
+    this->crosses_[15].setOutlineColor(sf::Color::Black);
     this->crosses_[15].setOutlineThickness(10);
     this->crosses_[15].setFillColor(sf::Color::Black);
     this->crosses_[15].setSize(sf::Vector2f(0.f,250.f));
@@ -360,14 +401,14 @@ void board::initEmptyCrosses()
 
     //bottom right gridbox
     this->crosses_[16].setPosition(1100.f,590.f);
-    this->crosses_[16].setOutlineColor(sf::Color::Blue);
+    this->crosses_[16].setOutlineColor(sf::Color::Black);
     this->crosses_[16].setOutlineThickness(10);
     this->crosses_[16].setFillColor(sf::Color::Black);
     this->crosses_[16].setSize(sf::Vector2f(0.f,250.f));
     this->crosses_[16].setRotation(45.f);
 
     this->crosses_[17].setPosition(922.5,590.f);
-    this->crosses_[17].setOutlineColor(sf::Color::Blue);
+    this->crosses_[17].setOutlineColor(sf::Color::Black);
     this->crosses_[17].setOutlineThickness(10);
     this->crosses_[17].setFillColor(sf::Color::Black);
     this->crosses_[17].setSize(sf::Vector2f(0.f,250.f));
