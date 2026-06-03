@@ -171,64 +171,64 @@ void board::initBoardGrid() {
 void board::initEmptyCircles()
 {
     //top left gridbox
-    this->circles_[0].setPosition(12.5,10.f);
-    this->circles_[0].setRadius(85);
+    this->circles_[0].setPosition(82.5,25.f);
+    this->circles_[0].setRadius(95);
     this->circles_[0].setOutlineColor(sf::Color::Red);
     this->circles_[0].setOutlineThickness(10);
     this->circles_[0].setFillColor(sf::Color::Black);
 
     //top middle gridbox
-    this->circles_[1].setPosition(425.f,10.f);
+    this->circles_[1].setPosition(505.f,25.f);
     this->circles_[1].setRadius(95);
     this->circles_[1].setOutlineColor(sf::Color::Red);
     this->circles_[1].setOutlineThickness(10);
     this->circles_[1].setFillColor(sf::Color::Black);
 
     //top right gridbox
-    this->circles_[2].setPosition(837.5,10.f);
-    this->circles_[2].setRadius(65);
+    this->circles_[2].setPosition(917.5,25.f);
+    this->circles_[2].setRadius(95);
     this->circles_[2].setOutlineColor(sf::Color::Red);
     this->circles_[2].setOutlineThickness(10);
     this->circles_[2].setFillColor(sf::Color::Black);
 
     //middle left gridbox
-    this->circles_[3].setPosition(12.5,292.f);
-    this->circles_[3].setRadius(75);
+    this->circles_[3].setPosition(82.5,304.5);
+    this->circles_[3].setRadius(95);
     this->circles_[3].setOutlineColor(sf::Color::Red);
     this->circles_[3].setOutlineThickness(10);
     this->circles_[3].setFillColor(sf::Color::Black);
 
     //middle middle gridbox
-    this->circles_[4].setPosition(425.f,292.f);
-    this->circles_[4].setRadius(85);
+    this->circles_[4].setPosition(505.f,304.5);
+    this->circles_[4].setRadius(95);
     this->circles_[4].setOutlineColor(sf::Color::Red);
     this->circles_[4].setOutlineThickness(10);
     this->circles_[4].setFillColor(sf::Color::Black);
 
     //middle right gridbox
-    this->circles_[5].setPosition(837.5,292.f);
-    this->circles_[5].setRadius(75);
+    this->circles_[5].setPosition(917.5,304.5);
+    this->circles_[5].setRadius(95);
     this->circles_[5].setOutlineColor(sf::Color::Red);
     this->circles_[5].setOutlineThickness(10);
     this->circles_[5].setFillColor(sf::Color::Black);
 
     //bottom left gridbox
-    this->circles_[6].setPosition(12.5,575.5);
-    this->circles_[6].setRadius(100);
+    this->circles_[6].setPosition(82.5,584.f);
+    this->circles_[6].setRadius(95);
     this->circles_[6].setOutlineColor(sf::Color::Red);
     this->circles_[6].setOutlineThickness(10);
     this->circles_[6].setFillColor(sf::Color::Black);
 
     //bottom middle gridbox
-    this->circles_[7].setPosition(425.f,575.5);
-    this->circles_[7].setRadius(100);
+    this->circles_[7].setPosition(505.f,584.f);
+    this->circles_[7].setRadius(95);
     this->circles_[7].setOutlineColor(sf::Color::Red);
     this->circles_[7].setOutlineThickness(10);
     this->circles_[7].setFillColor(sf::Color::Black);
 
     //bottom right gridbox
-    this->circles_[8].setPosition(837.5,575.5);
-    this->circles_[8].setRadius(100);
+    this->circles_[8].setPosition(917.5,584.f);
+    this->circles_[8].setRadius(95);
     this->circles_[8].setOutlineColor(sf::Color::Red);
     this->circles_[8].setOutlineThickness(10);
     this->circles_[8].setFillColor(sf::Color::Black);
