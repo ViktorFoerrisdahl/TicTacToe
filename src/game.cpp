@@ -92,16 +92,23 @@ void game::render()
     
     case Ingame:
         //add to the new frame:
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) 
+        {
             this->window_->draw(Board_.boardInfo(i));
-            }
+        }
 
-        //display grid & symbols
-        for (int i = 0; i < 9; i++) {
+        //display grid & circles
+        for (int i = 0; i < 9; i++) 
+        {
             //draw grid (black boxes)
             this->window_->draw(Board_.boardGrid(i));
             //draw circles if they are placed
             this->window_->draw(Board_.circleInfo(i));
+        }
+
+         //display crosses
+        for (int i = 0; i < 18; i++)
+        {
             //draw crosses if they are placed
             this->window_->draw(Board_.crossesInfo(i));
         }
