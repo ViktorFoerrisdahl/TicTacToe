@@ -1,0 +1,29 @@
+Correct locations for ciclens when placed:
+
+    //top left gridbox
+    this->circles_[0].setPosition(82.5,25.f);
+
+    //top middle gridbox
+    this->circles_[1].setPosition(505.f,25.f);
+
+    //top right gridbox
+    this->circles_[2].setPosition(917.5,25.f);
+
+    //middle left gridbox
+    this->circles_[3].setPosition(82.5,304.5);
+
+    //middle middle gridbox
+    this->circles_[4].setPosition(505.f,304.5);
+    
+    //middle right gridbox
+    this->circles_[5].setPosition(917.5,304.5);
+
+    //bottom left gridbox
+    this->circles_[6].setPosition(82.5,584.f);
+
+    //bottom middle gridbox
+    this->circles_[7].setPosition(505.f,584.f);
+
+    //bottom right gridbox
+    this->circles_[8].setPosition(917.5,584.f);
+}

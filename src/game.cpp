@@ -92,19 +92,36 @@ void game::render()
     
     case Ingame:
         //add to the new frame:
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) 
+        {
             this->window_->draw(Board_.boardInfo(i));
-            }
+        }
 
         //display grid
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 9; i++) 
+        {
+            //draw grid (black boxes)
             this->window_->draw(Board_.boardGrid(i));
+        }
+
+        //display crosses
+        for (int i = 0; i < 18; i++)
+        {
+            //draw crosses if they are placed
+            this->window_->draw(Board_.crossesInfo(i));
+        }
+
+        //display circles
+        for (int i = 0; i < 9; i++) 
+        {
+            //draw circles if they are placed
+            this->window_->draw(Board_.circleInfo(i));
         }
 
         //////////////////////////////////////////////
         //REMOVE WHEN GAME IS DONE
         //function to get position to use for measurements:
-        //std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
         //////////////////////////////////////////////
 
         break;
@@ -164,7 +181,7 @@ void game::pollEvents()
                     {
                         Board_.updateBoard(i, this->turn_);
                         switchTurn();
-                        for (int i = 0; i < 200000000; i++) {
+                        for (int i = 0; i < 400000000; i++) {
                             //delay
                         }
                     }
@@ -177,6 +194,8 @@ void game::pollEvents()
                 if ((startMenu_.getButtonHitbox()).contains(this->mousePosView) && this->state_ == Menu) 
                 {
                         this->state_ = Ingame;
+                        this->turn_ = X;
+                        this->crossWins_ = false;
                         for (int i = 0; i < 400000000; i++) {
                             //delay
                         }
