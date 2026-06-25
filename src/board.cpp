@@ -1,3 +1,4 @@
+#include <iostream>
 #include "board.h"
 
 //public functions---------------
@@ -79,6 +80,57 @@ void board::updateBoard(int index, int turn)
 void board::placeCircle(int index)
 {
    this->circles_[index].setOutlineColor(sf::Color::Red);
+   switch (index)
+   {
+   case 0:
+    //top left gridbox
+    this->circles_[0].setPosition(82.5,25.f);
+    break;
+
+    case 1:
+     //top middle gridbox
+    this->circles_[1].setPosition(505.f,25.f);
+    break;
+
+    case 2:
+     //top right gridbox
+    this->circles_[2].setPosition(917.5,25.f);
+    break;
+
+    case 3:
+    //middle left gridbox
+    this->circles_[3].setPosition(82.5,304.5);
+    break;
+
+    case 4:
+    //middle middle gridbox
+    this->circles_[4].setPosition(505.f,304.5);
+    break;
+
+    case 5:
+     //middle right gridbox
+    this->circles_[5].setPosition(917.5,304.5);
+    break;
+
+    case 6:
+    //bottom left gridbox
+    this->circles_[6].setPosition(82.5,584.f);
+    break;
+
+    case 7:
+    //bottom middle gridbox
+    this->circles_[7].setPosition(505.f,584.f);
+    break;
+
+    case 8:
+    //bottom right gridbox
+    this->circles_[8].setPosition(917.5,584.f);
+    break;
+
+   default:
+    std::cout << "reached default at placeCircle function" << std::endl;
+    break;
+   }
 }
 
 void board::placeCross(int index) 
@@ -213,68 +265,13 @@ void board::initBoardGrid() {
 
 void board::initEmptyCircles()
 {
-    //top left gridbox
-    this->circles_[0].setPosition(82.5,25.f);
-    this->circles_[0].setRadius(95);
-    this->circles_[0].setOutlineColor(sf::Color::Black);
-    this->circles_[0].setOutlineThickness(10);
-    this->circles_[0].setFillColor(sf::Color::Black);
-
-    //top middle gridbox
-    this->circles_[1].setPosition(505.f,25.f);
-    this->circles_[1].setRadius(95);
-    this->circles_[1].setOutlineColor(sf::Color::Black);
-    this->circles_[1].setOutlineThickness(10);
-    this->circles_[1].setFillColor(sf::Color::Black);
-
-    //top right gridbox
-    this->circles_[2].setPosition(917.5,25.f);
-    this->circles_[2].setRadius(95);
-    this->circles_[2].setOutlineColor(sf::Color::Black);
-    this->circles_[2].setOutlineThickness(10);
-    this->circles_[2].setFillColor(sf::Color::Black);
-
-    //middle left gridbox
-    this->circles_[3].setPosition(82.5,304.5);
-    this->circles_[3].setRadius(95);
-    this->circles_[3].setOutlineColor(sf::Color::Black);
-    this->circles_[3].setOutlineThickness(10);
-    this->circles_[3].setFillColor(sf::Color::Black);
-
-    //middle middle gridbox
-    this->circles_[4].setPosition(505.f,304.5);
-    this->circles_[4].setRadius(95);
-    this->circles_[4].setOutlineColor(sf::Color::Black);
-    this->circles_[4].setOutlineThickness(10);
-    this->circles_[4].setFillColor(sf::Color::Black);
-
-    //middle right gridbox
-    this->circles_[5].setPosition(917.5,304.5);
-    this->circles_[5].setRadius(95);
-    this->circles_[5].setOutlineColor(sf::Color::Black);
-    this->circles_[5].setOutlineThickness(10);
-    this->circles_[5].setFillColor(sf::Color::Black);
-
-    //bottom left gridbox
-    this->circles_[6].setPosition(82.5,584.f);
-    this->circles_[6].setRadius(95);
-    this->circles_[6].setOutlineColor(sf::Color::Black);
-    this->circles_[6].setOutlineThickness(10);
-    this->circles_[6].setFillColor(sf::Color::Black);
-
-    //bottom middle gridbox
-    this->circles_[7].setPosition(505.f,584.f);
-    this->circles_[7].setRadius(95);
-    this->circles_[7].setOutlineColor(sf::Color::Black);
-    this->circles_[7].setOutlineThickness(10);
-    this->circles_[7].setFillColor(sf::Color::Black);
-
-    //bottom right gridbox
-    this->circles_[8].setPosition(917.5,584.f);
-    this->circles_[8].setRadius(95);
-    this->circles_[8].setOutlineColor(sf::Color::Black);
-    this->circles_[8].setOutlineThickness(10);
-    this->circles_[8].setFillColor(sf::Color::Black);
+    for (int i = 0; i < 9; i++) {
+        this->circles_[i].setPosition(1200.f,800.f);
+        this->circles_[i].setRadius(95);
+        this->circles_[i].setOutlineColor(sf::Color::Black);
+        this->circles_[i].setOutlineThickness(10);
+        this->circles_[i].setFillColor(sf::Color::Black);
+    }
 }
 
 void board::initEmptyCrosses() 

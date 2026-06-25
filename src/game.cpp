@@ -97,20 +97,25 @@ void game::render()
             this->window_->draw(Board_.boardInfo(i));
         }
 
-        //display grid & circles
+        //display grid
         for (int i = 0; i < 9; i++) 
         {
             //draw grid (black boxes)
             this->window_->draw(Board_.boardGrid(i));
-            //draw circles if they are placed
-            this->window_->draw(Board_.circleInfo(i));
         }
 
-         //display crosses
+        //display crosses
         for (int i = 0; i < 18; i++)
         {
             //draw crosses if they are placed
             this->window_->draw(Board_.crossesInfo(i));
+        }
+
+        //display circles
+        for (int i = 0; i < 9; i++) 
+        {
+            //draw circles if they are placed
+            this->window_->draw(Board_.circleInfo(i));
         }
 
         //////////////////////////////////////////////
