@@ -207,3 +207,33 @@ sf::Text startMenu::initWinnerDisplayTextAndReturnIt(bool x)
     return this->winnerDisplayText_;
     }
 }
+
+//init tie text and return it:
+sf::Text startMenu::initTieDisplayTextAndReturnIt()
+{
+    //set the font
+    this->TieDisplayText_.setFont(this->font_);
+
+    // set the string to display
+    this->TieDisplayText_.setString("It's a Tie!");
+    
+    // set the character size
+    this->TieDisplayText_.setCharacterSize(75); // in pixels, not points!
+
+    // set the color
+    this->TieDisplayText_.setFillColor(sf::Color::Red);
+
+    // set the text style
+    this->TieDisplayText_.setStyle(sf::Text::Bold);
+
+    // set the placement (middle)
+    this->TieDisplayText_.setPosition(445.f, 250.f);
+
+    //set outline
+    this->TieDisplayText_.setOutlineColor(sf::Color::Red);
+
+    //set outline size
+    this->TieDisplayText_.setOutlineThickness(1.f);
+
+    return this->TieDisplayText_;
+}
