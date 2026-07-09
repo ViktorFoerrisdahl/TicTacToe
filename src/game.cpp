@@ -179,10 +179,18 @@ void game::pollEvents()
                 {
                     if (Board_.getHitboxGrid(i).contains(this->mousePosView))
                     {
-                        Board_.updateBoard(i, this->turn_);
-                        switchTurn();
-                        for (int i = 0; i < 400000000; i++) {
+                        if (Board_.getGridValue(i) == 0) 
+                        {
+                            Board_.updateBoard(i, this->turn_);
+                            switchTurn();
+                            numberOfTurns++;
+                            for (int i = 0; i < 400000000; i++) {
                             //delay
+                            }
+                        }
+                        else 
+                        {
+                            //do nothing bc a symbol is already placed on the sqaure
                         }
                     }
                 }
