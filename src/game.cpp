@@ -10,6 +10,8 @@ void game::initVariables()
     this->state_ = Menu;
     this->turn_ = X;
     this->crossWins_ = false;
+    this->numberOfTurns = 0;
+    this->gameIsATie_ = false;
 }
 
 void game::initWindow() 
@@ -130,16 +132,24 @@ void game::render()
         //add gameover menu
         this->window_->draw(startMenu_.initGameoverTextAndReturnIt());
 
-        //draw winner text
-        this->window_->draw(startMenu_.initWinnerDisplayTextAndReturnIt(isCrossWinner()));
+        if (gameIsATie_) 
+        {
+            this->window_->draw(startMenu_.initTieDisplayTextAndReturnIt());
+        }
+        else 
+        {
+            //draw winner text
+            this->window_->draw(startMenu_.initWinnerDisplayTextAndReturnIt(isCrossWinner()));
+        }
+        
 
-        //draw start button
+        //draw restart button
         this->window_->draw(startMenu_.initRestartBottonTextAndReturnIt());
 
         //////////////////////////////////////////////
         //REMOVE WHEN GAME IS DONE
         // function to get position to use for measurements:
-        // std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
         //////////////////////////////////////////////
 
         break;
@@ -179,10 +189,18 @@ void game::pollEvents()
                 {
                     if (Board_.getHitboxGrid(i).contains(this->mousePosView))
                     {
-                        Board_.updateBoard(i, this->turn_);
-                        switchTurn();
-                        for (int i = 0; i < 400000000; i++) {
+                        if (Board_.getGridValue(i) == 0) 
+                        {
+                            Board_.updateBoard(i, this->turn_);
+                            switchTurn();
+                            numberOfTurns++;
+                            for (int i = 0; i < 400000000; i++) {
                             //delay
+                            }
+                        }
+                        else 
+                        {
+                            //do nothing bc a symbol is already placed on the sqaure
                         }
                     }
                 }
@@ -211,11 +229,20 @@ void game::pollEvents()
                     this->turn_ = X;
                     this->crossWins_ = false;
                     this->state_ = Menu;
+                    this->numberOfTurns = 0;
+                    this->gameIsATie_ = false;
                     for (int i = 0; i < 100000000; i++) 
                         {
                         //delay
                         }
                 }
+            }
+
+            //checks if game is a tie:
+            if (numberOfTurns == 9) 
+            {
+                this->state_ = GameOver;
+                this->gameIsATie_ = true;
             }
 
             //Game logic if statement:

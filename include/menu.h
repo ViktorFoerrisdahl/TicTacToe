@@ -26,8 +26,11 @@ sf::FloatRect hitboxButton_;
 //Gameover Text
 sf::Text gameOverText_;
 
-//Gameover Text
+//Winner display Text
 sf::Text winnerDisplayText_;
+
+//Tie display Text
+sf::Text TieDisplayText_;
 
 //button
 //text
@@ -57,10 +60,15 @@ sf::Text initButtonTextAndReturnIt();
 //restart text and button
 sf::FloatRect getRestartBottonHitbox();
 sf::Text initRestartBottonTextAndReturnIt();
+
 //game over text
 sf::Text initGameoverTextAndReturnIt();
+
 //winner text
 sf::Text initWinnerDisplayTextAndReturnIt(bool x);
+
+// tie text
+sf::Text initTieDisplayTextAndReturnIt();
 
 
 };

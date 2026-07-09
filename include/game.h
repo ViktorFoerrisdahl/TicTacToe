@@ -43,6 +43,10 @@ private:
 
     bool crossWins_;
 
+    bool gameIsATie_;
+
+    int numberOfTurns;
+
     //private functions:
     void initVariables();
     void initWindow();
