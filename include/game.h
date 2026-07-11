@@ -82,6 +82,7 @@ public:
     void render();
     void pollEvents();
     void switchTurn();
+    void delay(int x);
 };
 
 

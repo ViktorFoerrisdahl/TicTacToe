@@ -46,6 +46,14 @@ bool game::isCrossWinner()
     return this->crossWins_;
 }
 
+void game::delay(int x)
+{
+    for (auto i = 0; i < x; i++) 
+    {
+        //delay
+    }
+}
+
 void game::switchTurn()
 {
     if (this->turn_ == X) 
@@ -194,9 +202,7 @@ void game::pollEvents()
                             Board_.updateBoard(i, this->turn_);
                             switchTurn();
                             numberOfTurns++;
-                            for (int i = 0; i < 400000000; i++) {
-                            //delay
-                            }
+                            delay(400000000);
                         }
                         else 
                         {
@@ -214,9 +220,7 @@ void game::pollEvents()
                         this->state_ = Ingame;
                         this->turn_ = X;
                         this->crossWins_ = false;
-                        for (int i = 0; i < 400000000; i++) {
-                            //delay
-                        }
+                        delay(400000000);
                 }
             }
 
@@ -231,10 +235,7 @@ void game::pollEvents()
                     this->state_ = Menu;
                     this->numberOfTurns = 0;
                     this->gameIsATie_ = false;
-                    for (int i = 0; i < 100000000; i++) 
-                        {
-                        //delay
-                        }
+                    delay(100000000);
                 }
             }
 
