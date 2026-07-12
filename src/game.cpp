@@ -46,6 +46,14 @@ bool game::isCrossWinner()
     return this->crossWins_;
 }
 
+void game::delay(int x)
+{
+    for (auto i = 0; i < x; i++) 
+    {
+        //delay
+    }
+}
+
 void game::switchTurn()
 {
     if (this->turn_ == X) 
@@ -123,7 +131,7 @@ void game::render()
         //////////////////////////////////////////////
         //REMOVE WHEN GAME IS DONE
         //function to get position to use for measurements:
-        std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        // std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
         //////////////////////////////////////////////
 
         break;
@@ -149,7 +157,7 @@ void game::render()
         //////////////////////////////////////////////
         //REMOVE WHEN GAME IS DONE
         // function to get position to use for measurements:
-        std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
+        // std::cout << "x: " << sf::Mouse::getPosition(*this->window_).x << "y: " << sf::Mouse::getPosition(*this->window_).y << std::endl;
         //////////////////////////////////////////////
 
         break;
@@ -194,9 +202,7 @@ void game::pollEvents()
                             Board_.updateBoard(i, this->turn_);
                             switchTurn();
                             numberOfTurns++;
-                            for (int i = 0; i < 400000000; i++) {
-                            //delay
-                            }
+                            delay(400000000);
                         }
                         else 
                         {
@@ -214,9 +220,7 @@ void game::pollEvents()
                         this->state_ = Ingame;
                         this->turn_ = X;
                         this->crossWins_ = false;
-                        for (int i = 0; i < 400000000; i++) {
-                            //delay
-                        }
+                        delay(400000000);
                 }
             }
 
@@ -231,10 +235,7 @@ void game::pollEvents()
                     this->state_ = Menu;
                     this->numberOfTurns = 0;
                     this->gameIsATie_ = false;
-                    for (int i = 0; i < 100000000; i++) 
-                        {
-                        //delay
-                        }
+                    delay(100000000);
                 }
             }
 
@@ -248,143 +249,25 @@ void game::pollEvents()
             //Game logic if statement:
             if (this->state_ == Ingame) 
             {
-                int temp{};
-                //check if we have a winner in the top horizontial line
-                for (int i = 0; i < 3; i++) 
+                for (int i = 0; i < 8; i++) 
                 {
-                    temp += Board_.getGridValue(i);
-                }
-                if (temp == 21 || temp == 30) 
-                {
-                    if (temp == 30) 
+                    int temp{};
+                    for (int j = 0; j < 3; j++)
                     {
-                        this->crossWins_ = true;
+                        temp += Board_.getGridValue(winningCombinations_[i][j]);
                     }
-                    temp = 0;
-                    this->state_ = GameOver;
-                }
 
-                int temp1{};
-                //check if we have a winner in the middle horizontial line
-                for (int i = 3; i < 6; i++) 
-                {
-                    temp1 += Board_.getGridValue(i);
-                }
-                if (temp1 == 21 || temp1 == 30) 
-                {
-                    if (temp1 == 30) 
+                    if (temp == 21 || temp == 30) 
                     {
-                        this->crossWins_ = true;
+                        if (temp == 30) 
+                        {
+                            this->crossWins_ = true;
+                        }
+                        temp = 0;
+                        this->state_ = GameOver;
                     }
-                    temp1 = 0;
-                    this->state_ = GameOver;
+                        temp = 0;
                 }
-
-                int temp2{};
-                //check if we have a winner in the bottom horizontial line
-                for (int i = 6; i < 9; i++) 
-                {
-                    temp2 += Board_.getGridValue(i);
-                }
-                if (temp2 == 21 || temp2 == 30) 
-                {
-                    if (temp2 == 30) 
-                    {
-                        this->crossWins_ = true;
-                    }
-                    temp2 = 0;
-                    this->state_ = GameOver;
-                }
-
-                int temp3{};
-                //check if we have a winner left vertical line
-                for (int i = 0; i < 7; i++) 
-                {
-                    temp3 += Board_.getGridValue(i);
-                    i++;
-                    i++;
-                }
-                if (temp3 == 21 || temp3 == 30) 
-                {
-                    if (temp3 == 30) 
-                    {
-                        this->crossWins_ = true;
-                    }
-                    temp3 = 0;
-                    this->state_ = GameOver;
-                }
-
-                int temp4{};
-                //check if we have a winner middle vertical line
-                for (int i = 1; i < 8; i++) 
-                {
-                    temp4 += Board_.getGridValue(i);
-                    i++;
-                    i++;
-                }
-                if (temp4 == 21 || temp4 == 30) 
-                {
-                    if (temp4 == 30) 
-                    {
-                        this->crossWins_ = true;
-                    }
-                    temp4 = 0;
-                    this->state_ = GameOver;
-                }
-
-                int temp5{};
-                //check if we have a winner right vertical line
-                for (int i = 2; i < 9; i++) 
-                {
-                    temp5 += Board_.getGridValue(i);
-                    i++;
-                    i++;
-                }
-                if (temp5 == 21 || temp5 == 30) 
-                {
-                    if (temp == 30) 
-                    {
-                        this->crossWins_ = true;
-                    }
-                    temp5 = 0;
-                    this->state_ = GameOver;
-                }
-
-                int temp6{};
-                //check if we have a winner from left top to right bottom
-                for (int i = 0; i < 9; i++) 
-                {
-                    temp6 += Board_.getGridValue(i);
-                    i++;
-                    i++;
-                    i++;
-                }
-                if (temp6 == 21 || temp6 == 30) 
-                {
-                    if (temp6 == 30) 
-                    {
-                        this->crossWins_ = true;
-                    }
-                    temp6 = 0;
-                    this->state_ = GameOver;
-                }
-
-                int temp7{};
-                //check if we have a winner from right top to left bottom
-                for (int i = 2; i < 7; i++) 
-                {
-                    temp7 += Board_.getGridValue(i);
-                    i++;
-                }
-                if (temp7 == 21 || temp7 == 30) 
-                {
-                    if (temp7 == 30) 
-                    {
-                        this->crossWins_ = true;
-                    }
-                    temp7 = 0;
-                    this->state_ = GameOver;
-                } 
             }
-         }
+        }
 }
