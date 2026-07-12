@@ -185,26 +185,28 @@ void board::initBoard()
     for (auto i = 0; i < 4; i++)
     {
         this->game_lines_[i].setFillColor(sf::Color::White);
+        if (i < 2)
+        {
+            this->game_lines_[i].setOrigin(sf::Vector2f(25.f,0.f));
+            this->game_lines_[i].setSize(sf::Vector2f(50.f,800.f));
+        }
+        else 
+        {
+            this->game_lines_[i].setOrigin(sf::Vector2f(0.f,25.f));
+            this->game_lines_[i].setSize(sf::Vector2f(1200.f,50.f));
+        }
     }
     //Left vertical line
-    this->game_lines_[0].setOrigin(sf::Vector2f(25.f,0.f));
     this->game_lines_[0].setPosition(400.f,0.f);
-    this->game_lines_[0].setSize(sf::Vector2f(50.f,800.f));
 
     //Right vertical line
-    this->game_lines_[1].setOrigin(sf::Vector2f(25.f,0.f));
     this->game_lines_[1].setPosition(800.f,0.f);
-    this->game_lines_[1].setSize(sf::Vector2f(50.f,800.f));
 
     //Upper horizontal line
-    this->game_lines_[2].setOrigin(sf::Vector2f(0.f,25.f));
     this->game_lines_[2].setPosition(0.f,266.f);
-    this->game_lines_[2].setSize(sf::Vector2f(1200.f,50.f));
 
     //Lower horizontal line
-    this->game_lines_[3].setOrigin(sf::Vector2f(0.f,25.f));
     this->game_lines_[3].setPosition(0.f,532.f);
-    this->game_lines_[3].setSize(sf::Vector2f(1200.f,50.f));
 }
 
 void board::initBoardGrid() {
