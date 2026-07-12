@@ -51,13 +51,10 @@ void board::initBoardGridValues()
 
 void board::resetGridValueAndSymbol() 
 {
-    for (int i = 0; i < 9; i++)
-        {
             this->initBoardGridValues();
             this->initBoardGrid();
             this->initEmptyCircles();
             this->initEmptyCrosses();
-        }
 }
 
 void board::setGridValue(int index, int value) 
@@ -139,39 +136,39 @@ void board::placeCross(int index)
     {
     case 0:
         this->crosses_[0].setOutlineColor(sf::Color::Blue);
-        this->crosses_[0 + 1].setOutlineColor(sf::Color::Blue);
+        this->crosses_[1].setOutlineColor(sf::Color::Blue);
         break;
     case 1:
         this->crosses_[2].setOutlineColor(sf::Color::Blue);
-        this->crosses_[2 + 1].setOutlineColor(sf::Color::Blue);
+        this->crosses_[3].setOutlineColor(sf::Color::Blue);
         break;
     case 2:
         this->crosses_[4].setOutlineColor(sf::Color::Blue);
-        this->crosses_[4 + 1].setOutlineColor(sf::Color::Blue);
+        this->crosses_[5].setOutlineColor(sf::Color::Blue);
         break;
     case 3:
         this->crosses_[6].setOutlineColor(sf::Color::Blue);
-        this->crosses_[6 + 1].setOutlineColor(sf::Color::Blue);
+        this->crosses_[7].setOutlineColor(sf::Color::Blue);
         break;
     case 4:
         this->crosses_[8].setOutlineColor(sf::Color::Blue);
-        this->crosses_[8 + 1].setOutlineColor(sf::Color::Blue);
+        this->crosses_[9].setOutlineColor(sf::Color::Blue);
         break;
     case 5:
         this->crosses_[10].setOutlineColor(sf::Color::Blue);
-        this->crosses_[10 + 1].setOutlineColor(sf::Color::Blue);
+        this->crosses_[11].setOutlineColor(sf::Color::Blue);
         break;
     case 6:
         this->crosses_[12].setOutlineColor(sf::Color::Blue);
-        this->crosses_[12 + 1].setOutlineColor(sf::Color::Blue);
+        this->crosses_[13].setOutlineColor(sf::Color::Blue);
         break;
     case 7:
         this->crosses_[14].setOutlineColor(sf::Color::Blue);
-        this->crosses_[14 + 1].setOutlineColor(sf::Color::Blue);
+        this->crosses_[15].setOutlineColor(sf::Color::Blue);
         break;
     case 8:
         this->crosses_[16].setOutlineColor(sf::Color::Blue);
-        this->crosses_[16 + 1].setOutlineColor(sf::Color::Blue);
+        this->crosses_[17].setOutlineColor(sf::Color::Blue);
         break;
     default:
         break;
